@@ -51,6 +51,28 @@ shared_examples "it's authenticated" do
     end
   end
 
+  describe '#reset_session_token!' do
+    let(:user) { build(:user, session_token: 'abc') }
+
+    before :each do
+      allow(user).to receive(:random_token) { 'def' }
+    end
+
+    it 'sets the session token to a new random token' do
+      user.reset_session_token!
+      expect(user.session_token).to eq('def')
+    end
+
+    it 'saves the new session token' do
+      user.reset_session_token!
+      expect(User.find_by(username: user.username).session_token).to eq('def')
+    end
+
+    it 'returns the new session token' do
+      expect(user.reset_session_token!).to eq('def')
+    end
+  end
+
   describe '#ensure_session_token' do
     it 'always has a session token upon initialization' do
       user = build(:user)
