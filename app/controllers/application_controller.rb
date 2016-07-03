@@ -23,4 +23,9 @@ class ApplicationController < ActionController::Base
     current_user.reset_session_token!
     session[:token] = nil
   end
+
+  def require_sign_in!
+    return if signed_in?
+    render status: 401, json: { errors: ['You must be signed in!'] }
+  end
 end
