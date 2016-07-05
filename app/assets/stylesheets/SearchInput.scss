@@ -1,0 +1,18 @@
+@import "utils/variables";
+
+.search {
+
+}
+
+.search__input {
+  width: 100%;
+  padding: 10px 0px;
+  border-color: $light_green;
+  border-style: solid;
+  border-width: 0;
+  border-bottom-width: 2px;
+
+  &:focus {
+    border-color: $dark_green;
+  }
+}

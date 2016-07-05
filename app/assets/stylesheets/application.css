@@ -14,7 +14,7 @@
  *= require_tree .
  */
 
-html, body, main, nav, a, button, input {
+html, body, main, nav, a, button, input, section, ul, li {
   margin: 0;
   padding: 0;
   border: 0;
@@ -41,6 +41,7 @@ input, button {
   background: transparent;
   -webkit-appearance: none;
   box-sizing: content-box;
+  outline: none;
 }
 
 button {

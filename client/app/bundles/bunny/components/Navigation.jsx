@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import NavItem from './NavItem';
+import SearchInput from './SearchInput';
 
 const propTypes = {
   signedIn: PropTypes.bool.isRequired,
@@ -20,10 +21,12 @@ function Navigation({ signedIn }) {
 
   return (
     <nav>
-      <ul className="clearfix">
+      <ul className="nav-items clearfix">
         <NavItem href="/"><strong>bunny</strong></NavItem>
         {signInNavItem}
       </ul>
+
+      <SearchInput />
     </nav>
   );
 }
