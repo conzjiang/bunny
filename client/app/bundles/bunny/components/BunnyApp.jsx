@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import Navigation from './Navigation';
 
 const propTypes = {
   signedIn: PropTypes.bool.isRequired,
@@ -7,7 +8,7 @@ const propTypes = {
 function BunnyApp({ signedIn }) {
   return (
     <main>
-      { signedIn ? 'signed in' : 'not signed in'}
+      <Navigation signedIn={signedIn} />
     </main>
   );
 }

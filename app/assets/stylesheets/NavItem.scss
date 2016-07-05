@@ -1,0 +1,7 @@
+.nav-item {
+  float: left;
+
+  &:first-child {
+    margin-right: 10px;
+  }
+}

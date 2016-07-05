@@ -10,6 +10,46 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
+ *= require_tree .
  */
+
+html, body, main, nav, a, button, input {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+}
+
+html, body {
+  font-family: 'Karla', sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+input, button {
+  display: inline-block;
+  width: auto;
+  color: inherit;
+  background: transparent;
+  -webkit-appearance: none;
+  box-sizing: content-box;
+}
+
+button {
+  vertical-align: baseline;
+  cursor: pointer;
+}
+
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
