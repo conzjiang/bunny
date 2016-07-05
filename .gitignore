@@ -14,3 +14,16 @@
 
 config/database.yml
 .byebug_history
+.tm_properties
+
+# React on Rails
+npm-debug.log
+node_modules
+
+app/views/hello_world
+app/controllers/hello_world_controller.rb
+client/app/bundles/HelloWorld
+REACT_ON_RAILS.md
+
+# Generated js bundles
+/app/assets/webpack/*
