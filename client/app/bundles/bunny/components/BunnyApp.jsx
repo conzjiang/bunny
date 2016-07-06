@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import Navigation from './Navigation';
+import NewListButton from './NewListButton'
 import Lists from './Lists';
 
 const propTypes = {
@@ -10,6 +11,7 @@ function BunnyApp({ signedIn }) {
   return (
     <main>
       <Navigation signedIn={signedIn} />
+      <NewListButton />
       <Lists lists={[]} />
     </main>
   );
