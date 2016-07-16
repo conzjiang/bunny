@@ -1,1 +1,6 @@
-<%= react_component('BunnyApp', props: { signedIn: signed_in? }) %>
+<%= react_component('BunnyAppContainer', props: {
+  initData: {
+    lists: [],
+    signedIn: signed_in?,
+  },
+}) %>

@@ -1,7 +1,14 @@
 import alt from '../alt';
 import ListActions from '../actions/ListActions';
+import { PropTypes } from 'react';
 
-const initialState = {
+export const propTypes = {
+  creatingNewList: PropTypes.bool,
+  lists: PropTypes.array.isRequired,
+  signedIn: PropTypes.bool.isRequired,
+};
+
+export const initialState = {
   creatingNewList: false,
 };
 

@@ -1,2 +1,7 @@
 import Alt from 'alt';
-export default new Alt();
+
+const onDeserialize = (data) => (
+  typeof data === 'string' ? JSON.parse(data) : data
+);
+
+export default new Alt({ onDeserialize });

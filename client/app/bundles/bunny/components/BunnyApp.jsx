@@ -1,22 +1,45 @@
-import React, { PropTypes } from 'react';
+import React, { Component } from 'react';
+
+// Components
 import Navigation from './Navigation';
 import NewListButton from './NewListButton'
 import Lists from './Lists';
 
-const propTypes = {
-  signedIn: PropTypes.bool.isRequired,
+// Alt
+import ListStore, {
+  propTypes,
+  initialState as defaultProps,
+} from '../stores/ListStore';
+
+const storeConfig = {
+  getStores() {
+    return [ListStore];
+  },
+
+  getPropsFromStores() {
+    return ListStore.getState();
+  },
 };
 
-function BunnyApp({ signedIn }) {
-  return (
-    <main>
-      <Navigation signedIn={signedIn} />
-      <NewListButton />
-      <Lists lists={[]} />
-    </main>
-  );
+class BunnyApp extends Component {
+  render() {
+    const {
+      creatingNewList,
+      lists,
+      signedIn,
+    } = this.props;
+
+    return (
+      <main>
+        <Navigation signedIn={signedIn} />
+        <NewListButton creatingNewList={creatingNewList} />
+        <Lists lists={lists} />
+      </main>
+    );
+  }
 }
 
 BunnyApp.propTypes = propTypes;
+BunnyApp.defaultProps = defaultProps;
 
-export default BunnyApp;
+export default connectToStores(storeConfig, BunnyApp);
