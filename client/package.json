@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "alt": "^0.18.4",
+    "alt-utils": "^1.0.0",
     "autoprefixer": "^6.3.5",
     "axios": "^0.9.1",
     "babel": "^6.5.2",

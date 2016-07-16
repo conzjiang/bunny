@@ -6,6 +6,7 @@ import NewListButton from './NewListButton'
 import Lists from './Lists';
 
 // Alt
+import connectToStores from 'alt-utils/lib/connectToStores';
 import ListStore, {
   propTypes,
   initialState as defaultProps,

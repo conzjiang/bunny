@@ -14,8 +14,8 @@ export const initialState = {
 
 class ListStore {
   constructor() {
+    this.bindActions(ListActions);
     this.state = Object.assign({}, initialState);
-    this.bindListeners(ListActions);
   }
 
   newListButtonClicked() {

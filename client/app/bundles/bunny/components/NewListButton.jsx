@@ -1,9 +1,13 @@
-import React, { Component } from 'react';
+import React, { PropTypes, Component } from 'react';
 
 // Alt
 import ListActions from '../actions/ListActions';
 
 const propTypes = {
+  creatingNewList: PropTypes.bool,
+};
+
+const defaultProps = {
   creatingNewList: false,
 };
 
@@ -37,5 +41,6 @@ class NewListButton extends Component {
 }
 
 NewListButton.propTypes = propTypes;
+NewListButton.defaultProps = defaultProps;
 
 export default NewListButton;
