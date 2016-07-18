@@ -11,7 +11,7 @@ const defaultProps = {
   creatingNewList: false,
 };
 
-class NewListButton extends Component {
+class NewList extends Component {
   constructor(props) {
     super(props);
 
@@ -40,7 +40,7 @@ class NewListButton extends Component {
   }
 }
 
-NewListButton.propTypes = propTypes;
-NewListButton.defaultProps = defaultProps;
+NewList.propTypes = propTypes;
+NewList.defaultProps = defaultProps;
 
-export default NewListButton;
+export default NewList;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 // Components
 import Navigation from './Navigation';
-import NewListButton from './NewListButton'
+import NewList from './NewList'
 import Lists from './Lists';
 
 // Alt
@@ -33,7 +33,7 @@ class BunnyApp extends Component {
     return (
       <main>
         <Navigation signedIn={signedIn} />
-        <NewListButton creatingNewList={creatingNewList} />
+        <NewList creatingNewList={creatingNewList} />
         <Lists lists={lists} />
       </main>
     );
