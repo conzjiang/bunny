@@ -2,5 +2,10 @@ import alt from '../alt';
 
 export default alt.generateActions(
   'creationStarted',
-  'creationCancelled'
+  'creationSucceeded',
+  'creationFailed',
+  'creationCompleted',
+  'formOpened',
+  'formClosed',
+  'titleEntered'
 );

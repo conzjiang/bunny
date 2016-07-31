@@ -16,7 +16,7 @@
 
 @import "utils/variables";
 
-html, body, main, nav, a, button, input, section, ul, li {
+html, body, main, nav, a, button, input, section, ul, li, small {
   margin: 0;
   padding: 0;
   border: 0;
@@ -64,6 +64,7 @@ button {
   border-style: solid;
   border-width: 0;
   border-bottom-width: 2px;
+  background: $input_background;
 
   &:focus {
     border-color: $dark_green;
@@ -72,4 +73,19 @@ button {
 
 .btn {
   padding: 5px;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+}
+
+small {
+  font-size: $font_small;
+}
+
+.error {
+  display: block;
+  margin-bottom: $margin_normal;
+  background: $pink;
 }

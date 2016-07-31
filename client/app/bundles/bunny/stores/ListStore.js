@@ -15,6 +15,10 @@ class ListStore {
     this.state = Object.assign({}, initialState);
     this.bindActions(ListActions);
   }
+
+  listCreated(list) {
+    this.setState({ lists: [list].concat(this.state.lists) });
+  }
 }
 
 export default alt.createStore(ListStore, 'ListStore');

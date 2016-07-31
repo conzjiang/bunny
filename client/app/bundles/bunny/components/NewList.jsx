@@ -7,6 +7,7 @@ import NewListStore, {
   initialState as defaultProps,
 } from '../stores/NewListStore';
 import NewListActions from '../actions/NewListActions';
+import { createList } from '../action_creators/NewListActionCreators';
 
 const storeConfig = {
   getStores() {
@@ -23,24 +24,30 @@ class NewList extends Component {
     super(props);
 
     this.onClickNewList = this.onClickNewList.bind(this);
+    this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.onCloseForm = this.onCloseForm.bind(this);
   }
 
   onClickNewList() {
-    if (this.props.creating) {
+    if (this.props.formVisible) {
       return;
     }
 
-    NewListActions.creationStarted();
+    NewListActions.formOpened();
   }
 
-  onSubmit() {
+  onChange(e) {
+    NewListActions.titleEntered(e.currentTarget.value);
+  }
 
+  onSubmit(e) {
+    e.preventDefault();
+    createList();
   }
 
   onCloseForm() {
-    NewListActions.creationCancelled();
+    NewListActions.formClosed();
   }
 
   renderButton() {
@@ -49,7 +56,7 @@ class NewList extends Component {
         className="new-list-button"
         onClick={this.onClickNewList}
         type="button"
-        disabled={this.props.creating}
+        disabled={this.props.formVisible}
       >
         New List
       </button>
@@ -61,7 +68,7 @@ class NewList extends Component {
       <form
         className="list-card list-form"
         method="POST"
-        action="/lists"
+        action="/api/lists"
         onSubmit={this.onSubmit}
       >
         <label
@@ -77,19 +84,18 @@ class NewList extends Component {
           name="list[title]"
           placeholder="ex) 'My Binge Watch Go-Tos'"
           value={this.props.title}
+          onChange={this.onChange}
         />
 
-        <button
-          type="submit"
-          className="btn list-form__button--submit"
-        >
-          Create
-        </button>
+        {this.renderErrors()}
+
+        {this.renderSubmitButton()}
 
         <button
           type="button"
           className="btn list-form__button--cancel"
           onClick={this.onCloseForm}
+          disabled={this.props.creating}
         >
           Cancel
         </button>
@@ -97,11 +103,51 @@ class NewList extends Component {
     );
   }
 
+  renderErrors() {
+    if (!this.props.hasError) {
+      return null;
+    }
+
+    if (!this.props.errors || !this.props.errors.length) {
+      return (
+        <small className="error">
+          Something went wrong. Please try again.
+        </small>
+      );
+    }
+
+    return this.props.errors.map(function (error) {
+      return (
+        <small className="error">{error}</small>
+      );
+    });
+  }
+
+  renderSubmitButton() {
+    let buttonText = "Create";
+
+    if (this.props.success) {
+      buttonText = "Created!";
+    } else if (this.props.creating) {
+      buttonText = "Creating...";
+    }
+
+    return (
+      <button
+        type="submit"
+        className="btn list-form__button--submit"
+        disabled={!this.props.title || this.props.creating}
+      >
+        {buttonText}
+      </button>
+    );
+  }
+
   render() {
     return (
       <section>
         {this.renderButton()}
-        {this.props.creating && this.renderForm()}
+        {this.props.formVisible && this.renderForm()}
       </section>
     );
   }
