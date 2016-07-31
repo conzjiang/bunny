@@ -16,7 +16,7 @@
 
 @import "utils/variables";
 
-html, body, main, nav, a, button, input, section, ul, li, small {
+html, body, main, nav, a, button, input, section, ul, li, small, fieldset {
   margin: 0;
   padding: 0;
   border: 0;
@@ -60,6 +60,7 @@ button {
 
 .input {
   width: 100%;
+  padding: 5px 0;
   border-color: $light_green;
   border-style: solid;
   border-width: 0;
@@ -88,4 +89,16 @@ small {
   display: block;
   margin-bottom: $margin_normal;
   background: $pink;
+}
+
+fieldset {
+  margin: $margin_normal 0;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  > label, > input {
+    display: block;
+  }
 }

@@ -15,7 +15,7 @@ function Navigation({ signedIn }) {
     );
   } else {
     signInNavItem = (
-      <NavItem>sign in</NavItem>
+      <NavItem href="/login">sign in</NavItem>
     );
   }
 
