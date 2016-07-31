@@ -22,7 +22,7 @@ class SearchInput extends Component {
     return (
       <section className="search">
         <input
-          className="search__input"
+          className="input search__input"
           type="search"
           autoComplete="off"
           placeholder="Search"

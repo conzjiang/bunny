@@ -57,3 +57,19 @@ button {
   display: block;
   clear: both;
 }
+
+.input {
+  width: 100%;
+  border-color: $light_green;
+  border-style: solid;
+  border-width: 0;
+  border-bottom-width: 2px;
+
+  &:focus {
+    border-color: $dark_green;
+  }
+}
+
+.btn {
+  padding: 5px;
+}

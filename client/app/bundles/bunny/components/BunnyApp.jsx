@@ -25,7 +25,6 @@ const storeConfig = {
 class BunnyApp extends Component {
   render() {
     const {
-      creatingNewList,
       lists,
       signedIn,
     } = this.props;
@@ -33,7 +32,7 @@ class BunnyApp extends Component {
     return (
       <main>
         <Navigation signedIn={signedIn} />
-        <NewList creatingNewList={creatingNewList} />
+        <NewList />
         <Lists lists={lists} />
       </main>
     );
